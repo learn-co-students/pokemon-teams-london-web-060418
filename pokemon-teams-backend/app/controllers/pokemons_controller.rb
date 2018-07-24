@@ -13,8 +13,8 @@ class PokemonsController < ApplicationController
         if pokemon_params[:species].nil?
           default[:species] = Faker::Pokemon.name
         end
-
         @pokemon = Pokemon.create(pokemon_params.merge(default))
+
         render json: @pokemon, status: 201
       else
         render json: { error: "Party is Full!"}, status: 403
